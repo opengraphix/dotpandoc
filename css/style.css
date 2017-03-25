@@ -12,18 +12,21 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Helvetica, Verdana, Arial;;
+    font-family: Helvetica, Verdana, Arial,sans-serif;
 }
 
 h1 {
     padding-top: 200px;
     line-height: 50px;
+    font-size:34px
 }
 h2 {
     padding-top: 30px;
+    font-size:26px
 }
 h3 {
     padding-top: 20px;
+    font-size:20px
 }
 h4 {
     padding-top: 10px;
