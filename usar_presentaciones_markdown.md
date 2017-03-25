@@ -33,14 +33,30 @@ Usando temas, ejemplo: Warsaw
 pandoc -t beamer habitos.txt -V theme:Warsaw -o habitos.pdf
 ~~~
 
+## Beamer theme Metropolis
+~~~
+pandoc --toc --slide-level 2 -V theme:metropolis -t beamer --latex-engine=xelatex archivo.md -o archivo.pdf
+~~~
+
+## Con fuentes
+~~~
+pandoc --toc --slide-level 2 -V header-includes:"\usepackage[]{ctex}" -V mainfont:"Fira Sans Book" -V sansfont:"Fira Sans Book" -V monofont:"Fira Sans Book" -V theme:metropolis -V header-includes:"\metroset{background=light}" -t beamer --latex-engine=xelatex archivo.md -o archivo.pdf
+~~~
+
 ## Reveal JS
 ~~~
 pandoc -t revealjs -s habitos.txt -o SLIDES.html
 ~~~
 
-~~~~
+~~~
 pandoc -t html5 -s --template=template-revealjs.html --standalone --section-divs --variable theme="league" -o habitos.html habitos.txt
-~~~~
+~~~
+
+## Template uso de HTML
+~~~
+pandoc archivo.md -o archivo.html --template template.html --css template.css --self-contained --toc --toc-depth 2
+~~~
+
 
 Soporte:
 - Texto centrado
