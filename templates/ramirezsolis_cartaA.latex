@@ -21,13 +21,13 @@
 
 $if(letterhead)$
 \usepackage{wallpaper}
-%\ThisULCornerWallPaper{1}{../logos/letterhead-front.pdf} % Uncomment to include a different letterhead on the first page
-\ULCornerWallPaper{1}{../logos/letterhead.pdf}
+%\ThisULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterhead-front.pdf} % Uncomment to include a different letterhead on the first page
+\ULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterhead.pdf}
 $endif$
 
 $if(letterfooter)$
 \usepackage{wallpaper}
-\LLCornerWallPaper{1}{../logos/letterfooter.pdf}
+\LLCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterfooter.pdf}
 $endif$
 
 % LANGUAGE

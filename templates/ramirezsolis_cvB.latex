@@ -123,8 +123,8 @@ $for(address)$
 $address$\\
 $endfor$
 \vspace{\baselineskip}
-$CURP$\\
-$RFC$\\
+%$CURP$\\
+%$RFC$\\
 $birthdate$\\
 
 \end{minipage}
