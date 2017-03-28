@@ -5,7 +5,6 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
 $for(author-meta)$
-  <meta name="version" content="S5 1.1" />
   <meta name="author" content="$author-meta$" />
 $endfor$
 $if(date-meta)$
@@ -16,9 +15,6 @@ $if(keywords)$
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
   <style type="text/css">code{white-space: pre;}</style>
-  <!-- configuration parameters -->
-  <meta name="defaultView" content="slideshow" />
-  <meta name="controlVis" content="hidden" />
 $if(quotes)$
   <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
 $endif$
@@ -30,13 +26,6 @@ $endif$
 $for(css)$
   <link rel="stylesheet" href="$css$" type="text/css" />
 $endfor$
-  <!-- style sheet links -->
-  <link rel="stylesheet" href="$s5-url$/slides.css" type="text/css" media="projection" id="slideProj" />
-  <link rel="stylesheet" href="$s5-url$/outline.css" type="text/css" media="screen" id="outlineStyle" />
-  <link rel="stylesheet" href="$s5-url$/print.css" type="text/css" media="print" id="slidePrint" />
-  <link rel="stylesheet" href="$s5-url$/opera.css" type="text/css" media="projection" id="operaFix" />
-  <!-- S5 JS -->
-  <script src="$s5-url$/slides.js" type="text/javascript"></script>
 $if(math)$
   $math$
 $endif$
@@ -48,32 +37,22 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
-<div class="layout">
-<div id="controls"></div>
-<div id="currentSlide"></div>
-<div id="header"></div>
-<div id="footer">
-  <h1>$date$</h1>
-  <h2>$title$</h2>
-</div>
-</div>
-<div class="presentation">
 $if(title)$
-<div class="titleslide slide">
-  <h1 class="title">$title$</h1>
+<div id="$idprefix$header">
+<h1 class="title">$title$</h1>
 $if(subtitle)$
-  <h2 class="subtitle">$subtitle$</h2>
+<h1 class="subtitle">$subtitle$</h1>
 $endif$
-$if(author)$
-  <h3 class="author">$for(author)$$author$$sep$<br/>$endfor$</h3>
-$endif$
+$for(author)$
+<h2 class="author">$author$</h2>
+$endfor$
 $if(date)$
-  <h4 class="date">$date$</h4>
+<h3 class="date">$date$</h3>
 $endif$
 </div>
 $endif$
 $if(toc)$
-<div class="slide" id="$idprefix$TOC">
+<div id="$idprefix$TOC">
 $toc$
 </div>
 $endif$
@@ -81,6 +60,5 @@ $body$
 $for(include-after)$
 $include-after$
 $endfor$
-</div>
 </body>
 </html>
