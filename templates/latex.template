@@ -1,7 +1,8 @@
-\documentclass[11pt,article,oneside]{memoir}
+\documentclass[letterpaper,11pt,article,oneside,spanish]{memoir}
 \usepackage[MinionPro]{org-preamble-pdflatex}
 %\usepackage[minion]{org-preamble-pdflatex}
 %\input{vc}
+\usepackage[utf8]{inputenc}
 
 $if(listings)$
 \usepackage{listings}
