@@ -22,7 +22,7 @@
 $if(letterhead)$
 \usepackage{wallpaper}
 %\ThisULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterhead-front.pdf} % Uncomment to include a different letterhead on the first page
-\ULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterleft.pdf}
+\ULCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterleft.pdf}
 $endif$
 
 %$if(letterfooter)$

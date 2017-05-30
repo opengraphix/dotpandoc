@@ -21,14 +21,14 @@
 
 $if(letterhead)$
 \usepackage{wallpaper}
-%\ThisULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterhead-front.pdf} % Uncomment to include a different letterhead on the first page
-\ULCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterhead.pdf}
+%\ThisULCornerWallPaper{1}{../logos/letterhead-front.pdf} % Uncomment to include a different letterhead on the first page
+\ULCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterleft.pdf}
 $endif$
 
-$if(letterfooter)$
-\usepackage{wallpaper}
-\LLCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterfooter.pdf}
-$endif$
+%$if(letterfooter)$
+%\usepackage{wallpaper}
+%\LLCornerWallPaper{1}{../logos/letterfooter.pdf}
+%$endif$
 
 % LANGUAGE
 %--------------------------------
@@ -91,13 +91,13 @@ $endif$
 % DOCUMENT
 %--------------------------------
 \begin{document}
-\small
-\textsc{\textbf{$author$}}
-$for(from)$
-\textbullet{} \textsc{$from$}
-$endfor$
-
-\vspace{1em}
+%\small
+%\textsc{\textbf{$author$}}
+%$for(from)$
+%\textbullet{} \textsc{$from$}
+%$endfor$
+%
+%\vspace{1em}
 
 \normalsize \sffamily
 $for(to)$
@@ -122,9 +122,9 @@ $endif$
 $body$
 
 \begin{FlushRight}
-  \IfFileExists{../logos/signature.pdf}
+  \IfFileExists{/Users/lramirez/Documents/Templates_personal/logos/signature.pdf}
   {
-    \includegraphics[height=5.5\baselineskip]{../logos/signature.pdf} \par
+    \includegraphics[height=5.5\baselineskip]{/Users/lramirez/Documents/Templates_personal/logos/signature.pdf} \par
   }
   {
     \vspace{5.5\baselineskip}

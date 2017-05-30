@@ -31,13 +31,13 @@
 $if(letterhead)$
 \usepackage{wallpaper}
 %\ThisULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterhead-front.pdf} % Uncomment to include a different letterhead on the first page
-\ULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterhead.pdf}
+\ULCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterhead.pdf}
 $endif$
 
 $if(letterfooter)$
 \usepackage{wallpaper}
 %\LLCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterfooter.pdf} %% con dirección
-\LLCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterfooter-white.pdf}
+\LLCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterfooter-white.pdf}
 $endif$
 
 %% Personalización de pie

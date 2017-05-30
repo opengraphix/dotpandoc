@@ -17,12 +17,12 @@
 $if(letterhead)$
   % To include the letterhead
   \usepackage{wallpaper}
-  \ULCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterhead.pdf}
+  \ULCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterhead.pdf}
 $endif$
   
 $if(letterfooter)$
 \usepackage{wallpaper}
-\LLCornerWallPaper{1}{/Users/lramirez/Dropbox/templates_personal/logos/letterfooter.pdf}
+\LLCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterfooter.pdf}
 $endif$
 % TYPOGRAPHY
 %--------------------------------

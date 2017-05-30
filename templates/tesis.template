@@ -197,11 +197,17 @@ $endif$
 %%% Ver en: https://tex.stackexchange.com/questions/254254/how-to-set-figures-and-tables-captions-in-apa-style-without-using-apa6-class
 %%%------------------------------------------------------------------------
 \DeclareCaptionLabelSeparator*{spaced}{\\[2ex]}
-\captionsetup[table]{textfont=it,format=plain,justification=justified,
-  singlelinecheck=false,labelsep=spaced,skip=0pt}
-\captionsetup[figure]{labelsep=period,labelfont=it,justification=justified,
-  singlelinecheck=false,font=doublespacing}
-
+\captionsetup[table]{textfont=it,font=footnotesize,format=plain,justification=justified,
+  singlelinecheck=false,labelsep=spaced,skip=0pt,labelfont=bf}
+\captionsetup[figure]{labelsep=period,labelfont={it,bf},font={footnotesize,doublespacing},justification=justified,
+  singlelinecheck=false}
+  
+%%%------------------------------------------------------------------------
+%%% Imagenes en horizontal
+%%%------------------------------------------------------------------------
+\usepackage{lscape}
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
 
 %%%------------------------------------------------------------------------
 %%% Cuerpo del Documento
