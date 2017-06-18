@@ -302,7 +302,12 @@ $if(habilidades)$
 \end{itemize}
 $endif$
 
- \begin{flushright}
-    \texttt{\footnotesize revisi\'on: \VCRevision\ el \VCDateTEX}
-  \end{flushright}
+\vspace{1cm}
+\begin{center}
+  {\scriptsize  Última actulización: \today\- •\-
+    Typeset in \href{http://nitens.org/taraborelli/cvtex}{
+    \fontspec{Times New Roman}\XeTeX }\\
+    Revisi\'on: \VCRevision\ el \VCDateTEX
+  }
+\end{center}
 \end{document}
