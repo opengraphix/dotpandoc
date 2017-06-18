@@ -1,0 +1,167 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[$fontsize$, a4paper]{article}
+
+% LAYOUT
+%--------------------------------
+\usepackage{geometry}
+\geometry{$geometry$}
+
+% No page numbers
+\pagenumbering{gobble}
+
+% Left align
+\usepackage[document]{ragged2e}
+
+$if(letterhead)$
+  % To include the letterhead
+  %\usepackage{wallpaper}
+  %\ULCornerWallPaper{1}{../logos/letterhead.pdf}
+$endif$
+
+$if(letterfooter)$
+%\usepackage{wallpaper}
+%\LLCornerWallPaper{1}{../logos/letterfooter.pdf}
+$endif$
+
+\usepackage{fancyhdr, lastpage, bbding, pmboxdraw}
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{ \fancyplain{}{$title$} }
+\rhead{ \fancyplain{}{\today} }
+%\rfoot{\fancyplain{}{pág. \thepage\ de \pageref{LastPage}}}
+%\fancyfoot[RO, LE] {pág. \thepage\ de \pageref{LastPage} }
+\thispagestyle{plain}
+
+% TYPOGRAPHY
+%--------------------------------
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+
+% converts LaTeX specials (quotes, dashes etc.) to Unicode
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont [Ligatures={Common}, Numbers={OldStyle}]{$seriffont$}
+\setsansfont[Scale=0.9]{$sansfont$}
+
+% Set paragraph break
+\setlength{\parskip}{1em}
+
+% Custom ampersand
+\newcommand{\amper}{{\fontspec[Scale=.95]{$seriffont$}\selectfont\itshape\&}}
+
+$if(seriffont)$
+\setmainfont[SmallCapsFeatures={LetterSpace=5,Letters=SmallCaps}]{$seriffont$}
+$endif$
+$if(sansfont)$
+    \setsansfont{$sansfont$}
+$endif$
+
+% Command required by how Pandoc handles the list conversion
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% TABLE CUSTOMIZATION
+%--------------------------------
+\usepackage{spreadtab}
+\usepackage{numprint}
+\usepackage[compact]{titlesec} % For customizing title sections
+\titlespacing*{\section}{0pt}{3pt}{-7pt} % Remove margin bottom from the title
+\usepackage{arydshln} % For the dotted line on the table
+\renewcommand{\arraystretch}{1.5} % Apply vertical padding to table cells
+\usepackage{hhline} % For single-cell borders
+\usepackage{enumitem} % For customizing lists
+\setlist{nolistsep} % No whitespace around list items
+\setlist[itemize]{leftmargin=0.5cm} % Reduce list left indent
+\setlength{\tabcolsep}{9pt} % Larger gutter between columns
+
+
+% LANGUAGE
+%--------------------------------
+$if(lang)$
+\usepackage{polyglossia}
+\setmainlanguage{$lang$}
+$endif$
+
+% PDF SETUP
+%--------------------------------
+\usepackage[xetex, bookmarks, colorlinks, breaklinks]{hyperref}
+\hypersetup
+{
+  pdfauthor=$author$,
+  pdfsubject=$title$,
+  pdftitle=$title$,
+  colorlinks, breaklinks, xetex, bookmarks,
+  filecolor=black,
+  urlcolor=[rgb]{0.117,0.682,0.858},
+  linkcolor=[rgb]{0.117,0.682,0.858},
+  linkcolor=[rgb]{0.117,0.682,0.858},
+  citecolor=[rgb]{0.117,0.682,0.858}
+}
+
+% DOCUMENT
+%--------------------------------
+\begin{document}
+\begin{center}
+{\Large \textsc{$title$}}
+\end{center}
+\begin{center}
+Semestre $semestre$
+\end{center}
+%\date{September 26, 2014}
+
+\begin{center}
+\rule{6.5in}{0.4pt}
+\begin{minipage}[t]{.90\textwidth}
+\begin{tabular}{llcccll}
+\textbf{Profesor:} & $name$ & & &  & \textbf{Horario:} & $horario$ \\
+\textbf{Email:} &  \href{mailto:$email$}{$email$} & & & & \textbf{Lugar:} & $salon$
+\end{tabular}
+\end{minipage}
+\rule{6.5in}{0.4pt}
+\end{center}
+\vspace{.5cm}
+\setlength{\unitlength}{1in}
+\renewcommand{\arraystretch}{2}
+
+\vskip.15in
+\noindent\textbf{Horario de clase:} Los alumnos puedes asistir a asesoría en el horario correspondiente para cualquier consulta relacionada a la materia.
+
+\vskip.15in
+\noindent\textbf{Objetivo General:} $objetivo$
+
+\vskip.15in
+\noindent\textbf{Contenido Temático:}
+$if(contenido)$
+\begin{enumerate}
+    $for(contenido)$
+      \item \textbf{$contenido.tema$}. $contenido.description$
+    $endfor$
+\end{enumerate}
+$endif$
+
+\vspace*{.15in}
+\noindent\textbf{Forma de evaluación:}
+\begin{center}
+\begin{minipage}{5in}
+\begin{flushleft}
+Resumenes por unidad (7 en total) \dotfill ~ 40 \% \\
+Exámen cada dos unidades (3 exámenes en total) \dotfill ~ 40 \% \\
+Exámen final de preparación (1)  \dotfill ~ 20 \% \\
+\end{flushleft}
+\end{minipage}
+\end{center}
+Se obtendrá \textbf{dos puntos} sobre la calificación final si los resumenes se entregan en formato PDF elaborados con LaTeX. La plantilla se descarga con git desde \url{https://github.com/opengraphix/plantilla_tareas_LATEX}
+
+\vskip.15in
+\noindent\textbf{Referencia básica:} %\footnotemark
+$if(bibliografia)$
+\begin{itemize}
+    $for(bibliografia)$
+      \item $bibliografia.author$. ($bibliografia.year$). \textit{$bibliografia.book$}. $bibliografia.editorial$. $bibliografia.country$
+    $endfor$
+\end{itemize}
+$endif$
+
+\end{document}
