@@ -15,7 +15,7 @@
 % LAYOUT
 %--------------------------------
 % Margins
-\usepackage{geometry} 
+\usepackage{geometry}
 \geometry{$geometry$}
 
 % Do not indent paragraphs
@@ -65,7 +65,7 @@ $endif$
 
 % TYPOGRAPHY
 %--------------------------------
-\usepackage{fontspec} 
+\usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
 % converts LaTeX specials (quotes, dashes etc.) to Unicode
@@ -85,11 +85,11 @@ $endif$
 
 % HEADINGS
 %--------------------------------
-\usepackage{sectsty} 
-\usepackage[normalem]{ulem} 
-\sectionfont{\rmfamily\mdseries} 
-\subsectionfont{\rmfamily\mdseries\scshape\normalsize} 
-\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize} 
+\usepackage{sectsty}
+\usepackage[normalem]{ulem}
+\sectionfont{\rmfamily\mdseries}
+\subsectionfont{\rmfamily\mdseries\scshape\normalsize}
+\subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
 
 % PDF SETUP
 %--------------------------------
@@ -118,30 +118,30 @@ $endif$
 {\LARGE $name$}\\
 \vspace{\baselineskip}
 {\Large \MakeLowercase{\textsc{$title$}}}\\
-\vspace{\baselineskip}
+%\vspace{\baselineskip}
 $for(address)$
 $address$\\
 $endfor$
-\vspace{\baselineskip}
-%$CURP$\\
-%$RFC$\\
+%\vspace{\baselineskip}
+$CURP$\\
+$RFC$\\
 $birthdate$\\
 
 \end{minipage}
 % COLUMN 2
-\begin{minipage}[t]{0.1\linewidth}
-\vspace{.63cm}
+\begin{minipage}[t]{0.17\linewidth} %{0.1\linewidth}
+\vspace{1cm}
 
 \href{tel:$phone$}{$phone$}\\
 \href{mailto:$email$}{$email$}\\
-\vspace{\baselineskip}
+%\vspace{\baselineskip}
 $for(urls)$
 \href{http://$urls$}{$urls$}\\
 $endfor$
 
 \end{minipage}
 % COLUMN 3
-\begin{minipage}[t]{0.37\linewidth}
+\begin{minipage}[t]{0.29\linewidth}
 \vspace{-1.4cm}
 \begin{flushright}
 \begin{tikzpicture}
