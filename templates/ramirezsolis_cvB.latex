@@ -40,16 +40,6 @@ $if(letterfooter)$
 \LLCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterfooter-white.pdf}
 $endif$
 
-%% Personalización de pie
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
-%\fancyhf{} % sets both header and footer to nothing
-%\renewcommand{\headrulewidth}{0pt}
-%\fancyfoot[C]{\sffamily{\thepage}}
-%\fancyfoot[L] {\sffamily{Plateria 130, Col. Amp. Michoacana\\ Delg. V. Carranza, CDMX}}
-%\fancyfoot[R] {\sffamily{T: 5795 . 3351 \\ C: 55 2300 . 2108}}
-
-% Habilitar el número de página con: "Lastname Resumen - Page 1 of 2 in small caps"
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 % To enable correct spacing
@@ -58,7 +48,7 @@ $endif$
 \fancyhf{}
 % Remove headline
 \renewcommand{\headrulewidth}{0pt}
-\cfoot{\textsc{\MakeLowercase{$lastname$} resumen -- página \thepage \xspace de \pageref*{LastPage}}\\\vspace{.45cm}{\footnotesize \href{tel:$phone$}{$phone$} --
+\cfoot{\vspace{.4in}\textsc{\MakeLowercase{$lastname$} curriculum vitae -- página \thepage \xspace de \pageref*{LastPage}}\\{\footnotesize \href{tel:$phone$}{$phone$} --
 \href{mailto:$email$}{$email$}}}
 
 % Enable importing and manipulating graphics
@@ -149,9 +139,9 @@ $endif$
 % A mistake that is often made is, there is a blank line between the \end{minipage} and \begin{minipage} left. Then the pages are no longer together.
 \begin{minipage}[t]{0.55\linewidth}
 
-{\LARGE $name$}\\
+{\Large $name$}\\
 \vspace{\baselineskip}
-{\Large \MakeLowercase{\textsc{$title$}}}\\
+{\large \MakeLowercase{\textsc{$degree$}}}\\
 %\vspace{\baselineskip}
 $for(address)$
 $address$\\
@@ -182,7 +172,7 @@ $endfor$
 \vspace{-1.4cm}
 \begin{flushright}
 \begin{tikzpicture}
-\node[circle,inner sep=.85cm,fill overzoom image=$photo$] (A) {};
+\node[circle,inner sep=.85cm,fill overzoom image=/Users/lramirez/Documents/Templates_personal/logos/$photo$] (A) {};
 \end{tikzpicture}
 \end{flushright}
 
@@ -212,7 +202,7 @@ $if(education)$
 \noindent
 $for(education)$
 \note{$education.year$}\textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
-\emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
+\emph{$education.university$}\\ $education.institute$ $if(education.city)$, $education.city$$endif$\\[.2cm]
 $endfor$
 $endif$
 

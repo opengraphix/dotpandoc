@@ -45,9 +45,10 @@ $endif$
 \pagestyle{fancy}
 \fancyhf{} % sets both header and footer to nothing
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[C]{\sffamily{\thepage}}
-\fancyfoot[L] {\sffamily{Plateria 130, Col. Amp. Michoacana\\ Delg. V. Carranza, CDMX}}
-\fancyfoot[R] {\sffamily{T: 5795 . 3351 \\ C: 55 2300 . 2108}}
+\fancyfoot[C]{\fontspec[Path=fonts/]{estre}\sffamily{\thepage}}
+\fancyfoot[L]{\fontspec[Path=fonts/]{estre}\fontsize{10}{12}\selectfont\vspace{.4in}\sffamily{Plateria 130, Col. Amp. Michoacana\\ Delg.
+    V. Carranza, CP 15250, CDMX}}
+\fancyfoot[R]{\fontspec[Path=fonts/]{estre}\fontsize{10}{12}\selectfont\vspace{.4in}\sffamily{5795 3351 \\ 55 2300 2108}}
 
 % Enable importing and manipulating graphics
 \usepackage[skins]{tcolorbox}
@@ -120,9 +121,9 @@ $endif$
 % A mistake that is often made is, there is a blank line between the \end{minipage} and \begin{minipage} left. Then the pages are no longer together.
 \begin{minipage}[t]{0.55\linewidth}
 
-{\LARGE $name$}\\
+{\Large $name$}\\
 \vspace{\baselineskip}
-{\Large \MakeLowercase{\textsc{$title$}}}\\
+{\large \MakeLowercase{\textsc{$degree$}}}\\
 %\vspace{\baselineskip}
 $for(address)$
 $address$\\
@@ -131,7 +132,7 @@ $endfor$
 $CURP$\\
 $RFC$\\
 $if(CVU)$
-CVU: $CVU$\\
+CVU: $CVU$
 $endif$
 $birthdate$\\
 
@@ -153,7 +154,7 @@ $endfor$
 \vspace{-1.4cm}
 \begin{flushright}
 \begin{tikzpicture}
-\node[circle,inner sep=.85cm,fill overzoom image=$photo$] (A) {};
+\node[circle,inner sep=.85cm,fill overzoom image=/Users/lramirez/Documents/Templates_personal/logos/$photo$] (A) {};
 \end{tikzpicture}
 \end{flushright}
 
@@ -183,7 +184,7 @@ $if(education)$
 \noindent
 $for(education)$
 \note{$education.year$}\textbf{$education.subject$}$if(education.degree)$, $education.degree$$endif$\\
-\emph{$education.institute$}$if(education.city)$, $education.city$$endif$\\[.2cm]
+\emph{$education.university$}\\ $education.institute$ $if(education.city)$, $education.city$$endif$\\[.2cm]
 $endfor$
 $endif$
 

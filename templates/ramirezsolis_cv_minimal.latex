@@ -1,0 +1,199 @@
+% Author: Steven Hair
+% Date: February 28, 2014 at 11:32 PM EST
+% Referencias
+% http://stevenhair.com/blog/2014/2/11/buttericks-practical-typography-and-xelatex-resumes/
+% http://practicaltypography.com/resumes.html
+
+\documentclass[$fontsize$, oneside, letterpaper]{article}
+\input{vc}
+% \usepackage[top=1.5in, bottom=1.5in, left=1.5in, right=1.5in]{geometry}
+\usepackage[$geometry$]{geometry}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{anyfontsize}
+\usepackage{xcolor}
+% set some font features
+\defaultfontfeatures{Ligatures=TeX,Numbers=Lining}
+% remove page numbers
+\pagestyle{empty}
+
+% font families
+\newfontfamily{\montserratfont}[Path=fonts/,BoldFont=Montserrat-Bold]{Montserrat-Regular}
+\newfontfamily{\crimsonfont}[Path=fonts/,ItalicFont=CrimsonText-Italic]{CrimsonText-Roman}
+
+% main font for the document
+\setmainfont[Path=fonts/, ItalicFont=CrimsonText-Italic]{CrimsonText-Roman}
+
+%-- name command --%
+\newcommand{\name}[1]{
+    \center{
+    \fontsize{20}{30}\selectfont
+    %\fontspec[Path=fonts/]{CrimsonText-Roman}#1
+    \fontspec[Path=fonts/]{Montserrat-Light}#1
+    }
+}
+%-- section heading --%
+\newcommand{\heading}[1]{
+\vspace{11pt}
+\raggedright
+\color{gray}\hrulefill \\
+\color{black}
+{
+\fontspec[Path=fonts/]{Montserrat-Bold}
+\scriptsize #1
+}
+\vspace{5pt}
+}
+%-- institution/company name, location, and years --%
+\newcommand{\institution}[3]{
+\vspace{3pt}
+{\Large #1 } {\large #2} \hfill {\large #3}
+}
+%-- position/degree--%
+\newcommand{\job}[2]{{\normalsize{#1}} \hfill {\normalsize{#2}}}
+%-- responsibilities --%
+\newenvironment{position}[2]{
+\emph{
+\job{#1}{#2}
+}
+\vspace{-5pt}
+\begin{itemize}
+\setlength{\itemsep}{-2pt}
+}
+{
+\end{itemize}
+\vspace{2pt}
+}
+%-- address --%
+\newenvironment{address}{
+\vspace{0.1in}
+\centering
+%\fontspec[Path=fonts/, UprightFont=* Regular]{Montserrat-Regular}
+\fontspec[Path=fonts/]{Montserrat-Light}
+\fontsize{9}{11}\selectfont
+}
+{
+\par
+}
+
+\usepackage{wallpaper}
+%%\ThisULCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterhead.pdf} % Uncomment to include a different letterhead on the first page
+\ULCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterhead.pdf}
+\LLCornerWallPaper{1}{/Users/lramirez/Documents/Templates_personal/logos/letterfooter-white.pdf}
+
+% To enable page numbering with: "Lastname Résumé - Page 1 of 2 in small caps"
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+% To enable correct spacing
+\usepackage{xspace}
+\pagestyle{fancy}
+\fancyhf{}
+% Remove headline
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{
+\fontspec[Path=fonts/]{Montserrat-Light}
+\fontsize{9}{11}\selectfont
+%%\textsc{\\\vspace{.45cm} \MakeUppercase{ramírez-fernández resume -- página \thepage
+\textsc{\\\vspace{.5in} \MakeUppercase{$lastname$ curriculum vitae -- página \thepage \xspace de \pageref{LastPage}}}}
+
+% LANGUAGE
+%--------------------------------
+% Set the main language
+$if(lang)$
+\usepackage{polyglossia}
+\setmainlanguage{$lang$}
+$endif$
+
+\begin{document}
+\name{$name$} \\
+\begin{address}
+  \MakeUppercase{$address1$}\\
+$phone$ \quad $email$
+\end{address}
+% ---Semblanza---%
+$if(intro)$
+\vspace{-10pt}
+\heading{SEMBLANZA}\\
+\vspace{-4pt}
+$intro$\\
+    $if(areasDinteres)$
+        \textbf{Áreas de interés:} $areasDinteres$\\
+    $endif$
+$endif$
+% ---- Educación ----%
+$if(education)$
+\heading{FORMACIÓN PROFESIONAL} \\
+$for(education)$
+\institution{$education.university$}{}{\large $education.year$}\\
+\begin{position}{$education.subject$}{}
+%%\item $education.degree$
+\item $education.intereses$
+\item $education.otros$
+\end{position}
+$endfor$
+$endif$
+% ---- Esperiencia profesional ----%
+$if(experience)$
+\vspace{-10pt}
+\heading{EXPERIENCIA PROFESIONAL}\\
+$for(experience)$
+\institution{$experience.employer$}{}{$experience.years$}\\
+\begin{position}{$experience.job$}{}
+  \item $experience.logros$
+  \item $experience.funciones$
+  \item $experience.actividad1$
+\end{position}
+$endfor$
+$endif$
+% ---Publicaciones---%
+$if(publicaciones)$
+\vspace{-10pt}
+\heading{PUBLICACIONES}\\
+\vspace{-4pt}
+$for(publicaciones)$
+\note{$publicaciones.year$}\textsc{$publicaciones.author$} $publicaciones.year$. \emph{$publicaciones.institute$}. \textbf{$publicaciones.title$}$if(publicaciones.pages)$, Total $publicaciones.pages$ páginas$endif$.\\[.2cm]\\[.2cm]
+$endfor$
+$endif$
+% ---Certificaciones---%
+$if(certificaciones)$
+\vspace{-10pt}
+\heading{CERTIFICACIONES}\\
+$for(certificaciones)$
+\institution{$certificaciones.institute$}{}{\large $certificaciones.year$}\\
+\begin{position}{$certificaciones.subject$}{}
+\item $certificaciones.degree$
+\end{position}
+$endfor$
+$endif$
+% ---Idiomas--%
+$if(languages)$
+\vspace{-10pt}
+\heading{IDIOMAS}\\
+%%\vspace{-4pt}
+$for(languages)$
+\emph{$languages.language$} ($languages.proficiency$)\\
+$endfor$
+$endif$
+% ---- Habilidades Informáticas ----%
+$if(habilidades)$
+\vspace{-10pt}
+\heading{HÁBILIDADES INFORMÁTICAS}\\
+\vspace{-4pt}
+\begin{itemize}
+    $for(habilidades)$
+      \item $habilidades$
+    $endfor$
+\end{itemize}
+$endif$
+
+%--- Versión---%
+\vspace{1cm}
+\begin{center}
+  {\scriptsize  Última actulización: \today\- •\-
+    Revisi\'on: \VCRevision\ el \VCDateTEX
+  }
+\end{center}
+\end{document}
+% Local Variables:
+% TeX-engine: xetex
+% End:
