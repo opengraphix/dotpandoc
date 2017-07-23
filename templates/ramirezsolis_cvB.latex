@@ -159,6 +159,9 @@ $endfor$
 %\vspace{\baselineskip}
 $CURP$\\
 $RFC$\\
+$if(CVU)$
+CVU: $CVU$
+$endif$
 $birthdate$\\
 
 \end{minipage}
